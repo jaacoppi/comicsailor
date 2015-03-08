@@ -1,0 +1,14 @@
+# TODO / Roadmap
+
+- display all comics and info without crashing the app (includes proper error checking)
+- better UI: show all text properly
+- landscape orientation and zooming of comics
+- ability to save reading progress of a comic
+- more comics
+- making sure all comic licenses are strictly followed
+- a desktop icon 
+	- I won't be doing it but if someone wants to submit an icon that's fine. Preferably something like either of these two:
+		- a stick figure with a mobile phone in a comic strip
+		- a Comic Sailor, pun intended
+- proper QML / C++ integration - removal of spaghetti code
+- Jolla Harbour package
