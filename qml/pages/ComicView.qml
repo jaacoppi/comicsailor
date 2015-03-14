@@ -55,7 +55,6 @@ Page {
               }
         Label {
           id: statuslabel
-          text: comic_img.status == Image.Ready ? 'Strip #' + comicsailor.current  : 'Loading strip #' + comicsailor.current
           }
 
         Image {
@@ -64,6 +63,19 @@ Page {
 		height: Screen.height
         source: comicsailor.imgurl
         fillMode: Image.PreserveAspectFit
+        onStatusChanged:
+            switch(comic_img.status) {
+                case Image.Loading:
+                    statuslabel.text = "Loading strip #" + comicsailor.current;
+                    break;
+                case Image.Ready:
+                    statuslabel.text = "Strip #" + comicsailor.current;
+                    break;
+                case Image.Error:
+                    statuslabel.text = "Error loading strip #" + comicsailor.current + ", choose another.";
+                    break;
+                }
+
         }
 
     }
