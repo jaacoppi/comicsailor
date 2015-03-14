@@ -6,6 +6,8 @@
 #include "common.h"
 
 char spiked_baseurl[] = "http://www.spikedmath.com/";
+char spiked_baseurl_below100[] = "http://www.spikedmath.com/0"; // special case for comics #10 - #99
+char spiked_baseurl_below10[] = "http://www.spikedmath.com/00"; // special case for comics #1 - #9
 char spiked_license[] = "http://creativecommons.org/licenses/by-nc-sa/2.5/ca/";
 // curl  helper functions
 extern int getcurldata(char *url, struct curl_inputstruct *chunk);
@@ -16,7 +18,7 @@ extern char *fillstring(char *ptr, char *beg, int nr, char *end);
 // return the url for newest comic - fill in struct selected_comic_data
 int Selectedcomic::spiked_getcurrent() {
     char spiked_archiveurl[] = "http://spikedmath.com/comics/";
-    char tempstr[30] = "";
+    char tempstr[100] = "";
 	char *ptr;
 
 	// http://curl.haxx.se/libcurl/c/getinmemory.html
@@ -53,30 +55,25 @@ int Selectedcomic::spiked_getcurrent() {
 		}
 	else // get current url by #id, not from startpage (init)
 		{
-		// get current url
-        if (current < 100) { // special case with Spiked Math urls: "099.html" instead of "99.html"
-            current_url = fillstring(current_url, spiked_baseurl, (long int) NULL, (char *)NULL);
-            current_url = (char *)realloc(current_url, strlen(current_url) + strlen(tempstr) + 20);
-			// TODO: use fillstring
-            strcat(current_url, "0");
-			char nr[5];
-            sprintf(nr, "%d", current);
-            strcat(current_url, nr);
-            strcat(current_url, ".html");
-			}
-		else {
-            current_url = fillstring(current_url, spiked_baseurl, current, ".html");
-		}
+        if (current <= 9) // special case with Spiked Math urls: "009.html" instead of "99.html"
+            current_url = fillstring(current_url, spiked_baseurl_below10, current, (char *) ".html");
+
+        if (current > 9 && current < 100)  // special case with Spiked Math urls: "099.html" instead of "99.html"
+            current_url = fillstring(current_url, spiked_baseurl_below100, current, (char *) ".html");
+
+        if (current >= 100)
+            current_url = fillstring(current_url, spiked_baseurl, current, (char *)".html");
+
 		// get current page
-            getcurldata(current_url, &chunk);
-		// we need to reload the correct page
-		}
-	// get current img
+        getcurldata(current_url, &chunk);
+        }
+
+    // get current img based on current_url
 	// an example of what needs to be parsed: <img src="http://spikedmath.com/comics/576-half-angle-identities.png"
     ptr = strstr(chunk.memory, spiked_archiveurl);
 	ptr=ptr+29;
 	int i;
-	for (i = 0; i < 40; i++)	{
+    for (i = 0; i < sizeof(tempstr) - 100; i++)	{
 		// parse until "
 		if (*ptr != '"' ) {
 			tempstr[i] = *ptr;
