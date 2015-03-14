@@ -7,17 +7,16 @@ Page {
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
         anchors.fill: parent
+        // Tell SilicaFlickable the height of its content.
+        contentHeight: column.height
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
             MenuItem {
-                text: qsTr("About Comic Sailor")
+                text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
                 }
         }
-
-        // Tell SilicaFlickable the height of its content.
-        contentHeight: column.height
 
         // Place our content in a Column.  The PageHeader is always placed at the top
         // of the page, followed by our content.
@@ -36,18 +35,17 @@ Page {
                         font.pixelSize: Theme.fontSizeExtraLarge
                         }
                 SilicaListView {
-                        x: Theme.paddingLarge
-                        width: 200
+			// TODO: is this enough to align center?
+                        width: 500
                         height: 400
+                        x: Theme.paddingLarge
                         model: ComicModel  {}
-
                         delegate: Column  {
                             Button  {                                
                                         text: comicname
-                                        // how to center?
+                                        // how to center? - here or listview?
                                         anchors.horizontalCenter: parent.horizontalCenter
                                         onClicked: pageStack.push(Qt.resolvedUrl("ComicView.qml"), {comic: comicname})
-
                                     }
                                 }
                         }
