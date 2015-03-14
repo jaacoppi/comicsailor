@@ -73,7 +73,7 @@ int Selectedcomic::spiked_getcurrent() {
     ptr = strstr(chunk.memory, spiked_archiveurl);
 	ptr=ptr+29;
 	int i;
-    for (i = 0; i < sizeof(tempstr) - 100; i++)	{
+    for (i = 0; i < sizeof(tempstr); i++)	{
 		// parse until "
 		if (*ptr != '"' ) {
 			tempstr[i] = *ptr;
