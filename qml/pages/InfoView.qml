@@ -4,10 +4,9 @@ import ComicSailor 1.0
 // Comic Sailor Comic Info page
 Page {
     id: infopage
+    property string license
+    property string homepage
 
-    Selectedcomic {
-            id: comicsailor
-            }
 
     Column {
                 id: column
@@ -23,8 +22,9 @@ Page {
             }
 
         Text {
+		width: parent.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-            text: comicsailor.homepage
+            text: homepage
 			}
 
         Label {
@@ -33,8 +33,9 @@ Page {
             }
 
 		Text {
+		width: parent.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-            text: comicsailor.license
+            text: license
 			}
 
         }

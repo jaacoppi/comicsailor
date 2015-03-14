@@ -25,7 +25,7 @@ Page {
         PullDownMenu {
             MenuItem {
                     text: "Comic Info"
-                    onClicked: pageStack.push(Qt.resolvedUrl("InfoView.qml"))
+		    onClicked: pageStack.push(Qt.resolvedUrl("InfoView.qml"), {license: comicsailor.license, homepage: comicsailor.homepage})
                     }
             MenuItem {
                         text: "First"
