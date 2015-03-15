@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import ComicSailor 1.0
+
 // Comic Sailor Comic Info page
 Page {
     id: infopage
@@ -17,25 +18,27 @@ Page {
                         }
 
         Label {
-            text: "Homepage"
-            horizontalAlignment: Text.AlignHCenter
+            text: "<b>" + "Homepage" + "</b>"
+            anchors.horizontalCenter: parent.horizontalCenter
             }
 
         Text {
-		width: parent.width
+            width: parent.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             text: homepage
+            color: Theme.primaryColor
 			}
 
         Label {
-            text: "License"
-            horizontalAlignment: Text.AlignHCenter
+            text: "<b>" + "License" + "</b>"
+            anchors.horizontalCenter: parent.horizontalCenter
             }
 
 		Text {
-		width: parent.width
+            width: parent.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             text: license
+            color: Theme.primaryColor
 			}
 
         }

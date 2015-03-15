@@ -33,21 +33,21 @@ Page {
                         text: qsTr("Choose a comic:")
                         color: Theme.secondaryHighlightColor
                         font.pixelSize: Theme.fontSizeExtraLarge
+                        anchors.horizontalCenter: parent.horizontalCenter
                         }
                 SilicaListView {
-			// TODO: is this enough to align center?
                         width: 500
                         height: 400
+                        anchors.horizontalCenter: parent.horizontalCenter
                         x: Theme.paddingLarge
                         model: ComicModel  {}
                         delegate: Column  {
-                            Button  {                                
-                                        text: comicname
-                                        // how to center? - here or listview?
-                                        anchors.horizontalCenter: parent.horizontalCenter
-                                        onClicked: pageStack.push(Qt.resolvedUrl("ComicView.qml"), {comic: comicname})
-                                    }
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            Button  {
+                                text: comicname
+                                onClicked: pageStack.push(Qt.resolvedUrl("ComicView.qml"), {comic: comicname})
                                 }
+                            }
                         }
             }
         }
