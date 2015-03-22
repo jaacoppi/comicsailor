@@ -17,7 +17,7 @@ Version:    0.0.1
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE
-URL:        http://example.org/
+URL:        https://github.com/jaacoppi/comicsailor
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  comicsailor.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
@@ -25,10 +25,12 @@ BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(libcurl)
+BuildRequires:  pkgconfig(json-c)
 BuildRequires:  desktop-file-utils
 
 %description
-Short description of my SailfishOS Application
+Comic Sailor is used to read webcomics on SailfishOS mobile devices.
 
 
 %prep
