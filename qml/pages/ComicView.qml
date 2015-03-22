@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 import ComicSailor 1.0
 
 
-
 Page {
     id: comicviewpage
     property string comic // we get this from FirstPage - what comic to load
@@ -16,8 +15,8 @@ Page {
         if (comic == "PEEBLES") { changecomic_peebles() }
         if (comic == "SPIKED") { changecomic_spiked() }
         }
+    onImgurlChanged: comic_img.source = imgurl
     }
-
 
     SilicaFlickable {
             contentHeight: comicviewpage.height
@@ -25,7 +24,7 @@ Page {
         PullDownMenu {
             MenuItem {
                     text: "Comic Info"
-		    onClicked: pageStack.push(Qt.resolvedUrl("InfoView.qml"), {license: comicsailor.license, homepage: comicsailor.homepage})
+                    onClicked: pageStack.push(Qt.resolvedUrl("InfoView.qml"), {license: comicsailor.license, homepage: comicsailor.homepage})
                     }
             MenuItem {
                         text: "First"
@@ -44,25 +43,23 @@ Page {
                         text: "Latest"
                         onClicked: comicsailor.comic_last()
                         }
-
-
                 /*
                 MenuItem {
                         text: "By #"
                     onClicked: // TODO: int picker
-                        }
-  */
-              }
+                        } */
+                }
         Label {
           id: statuslabel
+          wrapMode: Text.WordWrap
           }
 
         Image {
 		id: comic_img
 		width: Screen.width
 		height: Screen.height
-        source: comicsailor.imgurl
         fillMode: Image.PreserveAspectFit
+
         onStatusChanged:
             switch(comic_img.status) {
                 case Image.Loading:
@@ -72,11 +69,10 @@ Page {
                     statuslabel.text = "Strip #" + comicsailor.current;
                     break;
                 case Image.Error:
+                case Image.Null:
                     statuslabel.text = "Error loading strip #" + comicsailor.current + ", choose another.";
                     break;
                 }
-
         }
-
     }
 }
