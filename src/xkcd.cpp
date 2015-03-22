@@ -18,7 +18,6 @@ extern char *fillstring(char *ptr, char *beg, int nr, char *end);
 
 // return the url for newest comic - fill in class Selectedcomic_data
 int Selectedcomic::xkcd_getcurrent() {
-
 	// http://curl.haxx.se/libcurl/c/getinmemory.html
 	struct curl_inputstruct chunk;
 	chunk.memory = (char *) malloc(1);

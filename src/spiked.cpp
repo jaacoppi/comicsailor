@@ -6,6 +6,7 @@
 #include "common.h"
 
 char spiked_baseurl[] = "http://www.spikedmath.com/";
+char spiked_archiveurl[] = "http://spikedmath.com/comics/";
 char spiked_baseurl_below100[] = "http://www.spikedmath.com/0"; // special case for comics #10 - #99
 char spiked_baseurl_below10[] = "http://www.spikedmath.com/00"; // special case for comics #1 - #9
 char spiked_license[] = "http://creativecommons.org/licenses/by-nc-sa/2.5/ca/";
@@ -17,7 +18,6 @@ extern char *fillstring(char *ptr, char *beg, int nr, char *end);
 
 // return the url for newest comic - fill in struct selected_comic_data
 int Selectedcomic::spiked_getcurrent() {
-    char spiked_archiveurl[] = "http://spikedmath.com/comics/";
     char tempstr[100] = "";
 	char *ptr;
 
@@ -72,7 +72,7 @@ int Selectedcomic::spiked_getcurrent() {
 	// an example of what needs to be parsed: <img src="http://spikedmath.com/comics/576-half-angle-identities.png"
     ptr = strstr(chunk.memory, spiked_archiveurl);
 	ptr=ptr+29;
-	int i;
+    unsigned int i;
     for (i = 0; i < sizeof(tempstr); i++)	{
 		// parse until "
 		if (*ptr != '"' ) {

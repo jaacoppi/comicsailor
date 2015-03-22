@@ -7,6 +7,7 @@
 
 char diesel_baseurl[] = "http://www.dieselsweeties.com/";
 char diesel_license[] = "Creative Commons Attribution-NonCommercial 2.5";
+char diesel_archiveurl[100] = "http://www.dieselsweeties.com/archive/";
 // curl  helper functions
 extern int getcurldata(char *url, struct curl_inputstruct *chunk);
 
@@ -18,7 +19,6 @@ extern char *fillstring(char *ptr, char *beg, int nr, char *end);
 int Selectedcomic::diesel_getcurrent() {
     char tempstr[100] = "";
 	char *ptr;
-    char diesel_archiveurl[100] = "http://www.dieselsweeties.com/archive/";
 
 	// http://curl.haxx.se/libcurl/c/getinmemory.html
 	struct curl_inputstruct chunk;
@@ -64,8 +64,8 @@ int Selectedcomic::diesel_getcurrent() {
 
 	// get current img
 	ptr = strstr(chunk.memory, "hstrips/");
-	int i;
-    for (i = 0; i < 100; i++)	{
+    unsigned int i;
+    for (i = 0; i < sizeof(tempstr); i++)	{
 		// it's a number
 		if (*ptr != 'g' ) {
 			tempstr[i] = *ptr;

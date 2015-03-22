@@ -174,12 +174,6 @@ qint32 Selectedcomic::get_current() {
     return (qint32) current;
     }
 
-// this isn't really needed, should be deleted
-/* qint32 Selectedcomic::set_current(qint32 number) {
-    current = number;
-    emit currentChanged();
-    return (qint32) current;
-    } */
 
 qint32 Selectedcomic::get_newest() {
     return (qint32) newest;
@@ -188,7 +182,7 @@ qint32 Selectedcomic::get_newest() {
 
 // used quite a few times for setting comic->current_url and current_img
 char *fillstring(char *ptr, char *beg, int nr, char *end) {
-	/* three use cases:
+    /* three use cases:
 	ptr, beg, NULL, NULL 	-> only set a string
 	ptr, beg, nr, NULL	-> combine a string and a number
 	ptr, beg, nr, end	-> combine a string, a number and a string
@@ -197,7 +191,7 @@ char *fillstring(char *ptr, char *beg, int nr, char *end) {
 		int len = strlen(beg);
 		ptr = (char *) realloc(ptr, len +1);
 		ptr = (char *) memset(ptr, 0, len +1 );
-		memcpy(ptr, beg, len + 1);
+        memcpy(ptr, beg, len );
 		return ptr;
 	 	}
 	if (nr != (long int)NULL && end == NULL) {
