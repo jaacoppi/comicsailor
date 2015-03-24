@@ -1,11 +1,13 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import ComicSailor 1.0
+import harbour.comicsailor 1.0
 
 
 Page {
     id: comicviewpage
     property string comic // we get this from FirstPage - what comic to load
+//    allowedOrientations: Orientation.All
+    allowedOrientations: Orientation.Portrait | Orientation.Landscape | Orientation.LandscapeInverted
 
     Selectedcomic {
         id: comicsailor

@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     // I'm not sure how to init a Sailfish App.
 
     // this works
-    qmlRegisterType <Selectedcomic> ( "ComicSailor", 1, 0, "Selectedcomic" );
+    qmlRegisterType <Selectedcomic> ( "harbour.comicsailor", 1, 0, "Selectedcomic" );
     return SailfishApp :: main(argc, argv);
 
     // https://saildev.wordpress.com/2014/08/01/integrating-c-and-qml/comment-page-1/

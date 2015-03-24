@@ -10,11 +10,11 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = comicsailor
+TARGET = harbour-comicsailor
 
 CONFIG += sailfishapp
 
-SOURCES += src/comicsailor.cpp \
+SOURCES += src/harbour-comicsailor.cpp \
     src/cs_curl.cpp \
     src/cs_json.cpp \
     src/comics.cpp \
@@ -23,13 +23,13 @@ SOURCES += src/comicsailor.cpp \
     src/spiked.cpp \
     src/xkcd.cpp
 
-OTHER_FILES += qml/comicsailor.qml \
+OTHER_FILES += qml/harbour-comicsailor.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    rpm/comicsailor.changes.in \
-    rpm/comicsailor.spec \
-    rpm/comicsailor.yaml \
-    comicsailor.desktop \
+    rpm/harbour-comicsailor.changes.in \
+    rpm/harbour-comicsailor.spec \
+    rpm/harbour-comicsailor.yaml \
+    harbour-comicsailor.desktop \
     qml/pages/About.qml \
     qml/pages/ComicModel.qml \
     qml/pages/ComicView.qml \

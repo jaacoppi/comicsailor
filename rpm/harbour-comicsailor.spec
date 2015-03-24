@@ -12,11 +12,11 @@ Name:       comicsailor
 %{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
-Summary:    Comic Sailor
+Summary:    Comic Sailor is a webcomics reader
 Version:    0.0.1
 Release:    1
 Group:      Qt/Qt
-License:    LICENSE
+License:    MIT License
 URL:        https://github.com/jaacoppi/comicsailor
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  comicsailor.yaml
@@ -30,7 +30,7 @@ BuildRequires:  pkgconfig(json-c)
 BuildRequires:  desktop-file-utils
 
 %description
-Comic Sailor is used to read webcomics on SailfishOS mobile devices.
+Comic Sailor is a webcomics reader for SailfishOS mobile devices. Only Creative Commons licensed comics are supported
 
 
 %prep

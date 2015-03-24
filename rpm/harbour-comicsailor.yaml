@@ -1,5 +1,5 @@
-Name: comicsailor
-Summary: Comic Sailor
+Name: harbour-comicsailor
+Summary: Comic Sailor is a webcomics reader
 Version: 0.0.1
 Release: 1
 # The contents of the Group field should be one of the groups listed here:
@@ -12,7 +12,7 @@ License: LICENSE
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
-  Comic Sailor is used to read webcomics on SailfishOS mobile devices.
+  Comic Sailor is a webcomics reader for SailfishOS mobile devices. Only Creative Commons licensed comics are supported.
 Configure: none
 # The qtc5 builder inserts macros to allow QtCreator to have fine
 # control over qmake/make execution
