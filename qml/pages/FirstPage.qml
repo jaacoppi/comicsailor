@@ -44,8 +44,8 @@ Page {
                         delegate: Column  {
                             anchors.horizontalCenter: parent.horizontalCenter
                             Button  {
-                                text: comicname
-                                onClicked: pageStack.push(Qt.resolvedUrl("ComicView.qml"), {comic: comicname})
+                                text: comictitle
+                                onClicked: pageStack.push(Qt.resolvedUrl("ComicView.qml"), {comic: comicname; comictitle: comictitle})
                                 }
                             }
                         }

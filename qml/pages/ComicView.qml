@@ -5,7 +5,9 @@ import harbour.comicsailor 1.0
 
 Page {
     id: comicviewpage
-    property string comic // we get this from FirstPage - what comic to load
+// we get these from FirstPage - what comic to load
+    property string comic 
+    property string comictitle
 //    allowedOrientations: Orientation.All
     allowedOrientations: Orientation.Portrait | Orientation.Landscape | Orientation.LandscapeInverted
 
@@ -68,7 +70,7 @@ Page {
                     statuslabel.text = "Loading strip #" + comicsailor.current;
                     break;
                 case Image.Ready:
-                    statuslabel.text = "Strip #" + comicsailor.current;
+                    statuslabel.text = comicviewpage.comictitle + " strip #" + comicsailor.current;
                     break;
                 case Image.Error:
                 case Image.Null:
