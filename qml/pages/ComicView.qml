@@ -78,5 +78,22 @@ Page {
                     break;
                 }
         }
+
+
+      // pinch zoom in and out of the strip
+      PinchArea {
+          //property int xpoint
+          //property int ypoint
+          //property int pinchscale
+          id: pinchzoom
+          enabled: true
+          pinch.target: comic_img
+          anchors.fill: parent
+          pinch.dragAxis: Pinch.NoDrag
+          pinch.minimumScale: 0.5
+          pinch.maximumScale: 3
+          pinch.maximumRotation: 0
+          //onPinchUpdated: { xpoint = pinch.center.x; ypoint = pinch.center.y; pinchscale = pinch.scale}
+        }
     }
 }
