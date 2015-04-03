@@ -8,9 +8,7 @@ Page {
 // we get these from FirstPage - what comic to load
     property string comic 
     property string comictitle
-//    allowedOrientations: Orientation.All
-    allowedOrientations: Orientation.Portrait | Orientation.Landscape | Orientation.LandscapeInverted
-
+    allowedOrientations: Orientation.All
     Selectedcomic {
         id: comicsailor
         Component.onCompleted: {
@@ -28,7 +26,7 @@ Page {
         PullDownMenu {
             MenuItem {
                     text: "Comic Info"
-                    onClicked: pageStack.push(Qt.resolvedUrl("InfoView.qml"), {license: comicsailor.license, homepage: comicsailor.homepage})
+                    onClicked: pageStack.push(Qt.resolvedUrl("InfoView.qml"), {license: comicsailor.license, homepage: comicsailor.homepage, title: comictitle})
                     }
             MenuItem {
                         text: "First"
@@ -53,6 +51,7 @@ Page {
                     onClicked: // TODO: int picker
                         } */
                 }
+
         Label {
           id: statuslabel
           wrapMode: Text.WordWrap
@@ -60,8 +59,11 @@ Page {
 
         Image {
 		id: comic_img
-		width: Screen.width
-		height: Screen.height
+        // use whole page except the area reserved for statuslabel
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.top: statuslabel.bottom
         fillMode: Image.PreserveAspectFit
 
         onStatusChanged:
@@ -79,21 +81,22 @@ Page {
                 }
         }
 
-
+/* TODO: pinch zoom doesn't work at the moment, make it work
       // pinch zoom in and out of the strip
-      PinchArea {
-          //property int xpoint
-          //property int ypoint
-          //property int pinchscale
-          id: pinchzoom
-          enabled: true
-          pinch.target: comic_img
-          anchors.fill: parent
-          pinch.dragAxis: Pinch.NoDrag
-          pinch.minimumScale: 0.5
-          pinch.maximumScale: 3
+      PinchArea {
+          //property int xpoint
+          //property int ypoint
+          //property int pinchscale
+          id: pinchzoom
+          enabled: true
+          pinch.target: comic_img
+          anchors.fill: comic_img
+          pinch.dragAxis: Pinch.NoDrag
+          pinch.minimumScale: 0.5
+          pinch.maximumScale: 3
           pinch.maximumRotation: 0
-          //onPinchUpdated: { xpoint = pinch.center.x; ypoint = pinch.center.y; pinchscale = pinch.scale}
+          //onPinchUpdated: { xpoint = pinch.center.x; ypoint = pinch.center.y; pinchscale = pinch.scale}
         }
+    */
     }
 }
