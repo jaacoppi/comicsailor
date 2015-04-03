@@ -1,12 +1,14 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import ComicSailor 1.0
+import harbour.comicsailor 1.0
 
 // Comic Sailor Comic Info page
 Page {
     id: infopage
+    allowedOrientations: Orientation.All
     property string license
     property string homepage
+    property string title
 
 
     Column {
@@ -14,7 +16,7 @@ Page {
                 width: infopage.width
                 spacing: Theme.paddingLarge
                 PageHeader {
-                        title: "Comic info"
+                        title: infopage.title
                         }
 
         Label {
