@@ -1,11 +1,9 @@
 # TODO / Roadmap
-- landscape orientation and zooming of comics
-- ability to save reading progress of a comic
-- more comics (Poorly Drawn lines and Extra Fabulous Comics planned)
-- making sure all comic licenses are strictly followed
-- a desktop icon 
-	- I won't be doing it but if someone wants to submit an icon that's fine. Preferably something like either of these two:
-		- a stick figure with a mobile phone in a comic strip
-		- a Comic Sailor, pun intended
-- proper QML / C++ integration - removal of spaghetti code
 - Jolla Harbour package
+- next / previous with swipe right (== next) & left
+- go to specific image
+- xkcd tooltip text by tapping the image
+- ability to save reading progress of a comic
+- more comics
+- making sure all comic licenses are strictly followed
+- proper QML / C++ integration - removal of spaghetti code

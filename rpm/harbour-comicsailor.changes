@@ -8,10 +8,13 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Sun Mar 29 2015 jaacoppi <> 0.0.2-2
-- Landscape mode for viewing comics (not for any other screen)
-- Pinch zoom comics
-- App icon
-- UI changes: show real comic title instead of ALL CAPS short version
+* Fri Apr 3 2015 jaacoppi <> 0.0.2-2
+- Landscape mode
+- App icon & proper desktop name
+- Bugfix: support Diesel Sweeties regardless of comic file extension
+- UI changes:
+- Show real comic title instead of ALL CAPS short version
+- Use comic title in various places
+- Reformatted About page
 
 
