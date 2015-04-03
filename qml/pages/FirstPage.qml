@@ -26,7 +26,7 @@ Page {
                 width: page.width
                 spacing: Theme.paddingLarge
                 PageHeader {
-                        title: "Comic Sailor 0.0.1"
+                        title: "Comic Sailor"
                         }
                 Label {
                         id: choosecomic
