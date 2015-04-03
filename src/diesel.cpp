@@ -67,12 +67,11 @@ int Selectedcomic::diesel_getcurrent() {
     unsigned int i;
     for (i = 0; i < sizeof(tempstr); i++)	{
 		// it's a number
-		if (*ptr != 'g' ) {
+        if (*ptr != '"' ) {
 			tempstr[i] = *ptr;
 			}
 		else { // found the .png ending, finish
-			tempstr[i] = 'g';
-			tempstr[i+1] = '\0';
+            tempstr[i] = '\0';
 			break;
 			}
 		ptr++;
