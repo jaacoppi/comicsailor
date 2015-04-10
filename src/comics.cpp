@@ -4,6 +4,7 @@
 #include <string.h>
 #include "common.h"
 #include <QObject>
+#include <ctime>
 
 
 
@@ -104,6 +105,15 @@ int Selectedcomic::changecomic_diesel() {
     return 1;
     }
 
+
+int Selectedcomic::comic_random() {
+	srand(time(NULL));
+	current = 1 + rand() % newest; // rnd between 1 and newest
+    (this->*getcurrent)();
+    emit currentChanged();
+    emit imgurlChanged();
+    return -1;
+	}
 
 int Selectedcomic::comic_next() {
 	if (current != newest)

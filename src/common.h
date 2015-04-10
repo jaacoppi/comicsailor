@@ -36,6 +36,7 @@ class Selectedcomic : public QObject {
     Q_INVOKABLE int comic_prev();
     Q_INVOKABLE int comic_first();
     Q_INVOKABLE int comic_last();
+    Q_INVOKABLE int comic_random();
     Q_INVOKABLE int comic_bynr(int nr);
 
 

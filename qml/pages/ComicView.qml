@@ -24,15 +24,6 @@ Page {
             contentHeight: comicviewpage.height
             anchors.fill: parent
         PullDownMenu {
-            MenuItem {
-                    text: "Comic Info"
-                    onClicked: pageStack.push(Qt.resolvedUrl("InfoView.qml"), {license: comicsailor.license, homepage: comicsailor.homepage, title: comictitle})
-                    }
-            MenuItem {
-                        text: "First"
-                        onClicked: comicsailor.comic_first()
-                        }
-
                 MenuItem {
                         text: "Next"
                         onClicked: comicsailor.comic_next()
@@ -42,16 +33,29 @@ Page {
                         onClicked: comicsailor.comic_prev()
                         }
                 MenuItem {
-                        text: "Latest"
-                        onClicked: comicsailor.comic_last()
+                        text: "Random"
+                        onClicked: comicsailor.comic_random()
                         }
+        }
                 /*
                 MenuItem {
                         text: "By #"
                     onClicked: // TODO: int picker
                         } */
+    PushUpMenu {
+        MenuItem {
+                    text: "First"
+                    onClicked: comicsailor.comic_first()
+                    }
+        MenuItem {
+                text: "Latest"
+                onClicked: comicsailor.comic_last()
                 }
-
+            MenuItem {
+        	            text: "Comic Info"
+                	    onClicked: pageStack.push(Qt.resolvedUrl("InfoView.qml"), {license: comicsailor.license, homepage: comicsailor.homepage, title: comictitle})
+	                    }
+		}
         Label {
           id: statuslabel
           wrapMode: Text.WordWrap
