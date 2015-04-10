@@ -43,4 +43,4 @@ OTHER_FILES += qml/harbour-comicsailor.qml \
 HEADERS += \
     src/common.h
 
-unix:!macx: LIBS += -L$$PWD/../../../usr/lib/i386-linux-gnu/ -lcurl -ljson-c
+unix:!macx: LIBS += -L$$PWD/../../../usr/lib/i386-linux-gnu/ -lcurl

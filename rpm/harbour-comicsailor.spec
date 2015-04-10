@@ -6,9 +6,6 @@
 Name:       harbour-comicsailor
 
 # >> macros
-# list here all the libraries your RPM installs
-%define __requires_exclude ^libjson-c.*$
-%define __provides_exclude_from ^%{_datadir}/.*$
 # << macros
 
 %{!?qtc_qmake:%define qtc_qmake %qmake}
@@ -29,7 +26,6 @@ BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(libcurl)
-BuildRequires:  pkgconfig(json-c)
 BuildRequires:  desktop-file-utils
 
 %description
