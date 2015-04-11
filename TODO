@@ -1,9 +1,12 @@
 # TODO / Roadmap
-- Jolla Harbour package
+- pinch zoom images
+- more robust UI
+- fault resistance
+- ability to save reading progress of a comic
+- more comics
+- code cleanup
 - next / previous with swipe right (== next) & left
 - go to specific image
 - xkcd tooltip text by tapping the image
-- ability to save reading progress of a comic
-- more comics
 - making sure all comic licenses are strictly followed
 - proper QML / C++ integration - removal of spaghetti code

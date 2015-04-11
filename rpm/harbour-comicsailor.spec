@@ -13,8 +13,8 @@ Name:       harbour-comicsailor
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Comic Sailor is a webcomics reader
-Version:    0.0.2
-Release:    2
+Version:    0.0.3
+Release:    3
 Group:      Qt/Qt
 License:    MIT
 URL:        https://github.com/jaacoppi/comicsailor

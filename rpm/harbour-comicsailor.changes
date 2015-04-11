@@ -8,6 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Apr 11 2015 jaacoppi <> 0.0.3-3
+- Changed JSON handling. Should not, but might affect (read: cause bugs) in XKCD
+- Select a random Strip from PullDownMenu
+- Added PushUpMenu, moved first, latest and comic info there from PullDownMenu
+
 * Fri Apr 3 2015 jaacoppi <> 0.0.2-2
 - Landscape mode
 - App icon & proper desktop name
