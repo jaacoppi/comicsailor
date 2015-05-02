@@ -20,15 +20,16 @@ Page {
                         }
 
         Label {
-            text: "<b>" + "Homepage" + "</b>"
+            text: "<b>" + "Home page" + "</b>"
             anchors.horizontalCenter: parent.horizontalCenter
             }
 
         Text {
             width: parent.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-            text: homepage
-            color: Theme.primaryColor
+            text: "<a href=\"homepage\">" + homepage + "</a>"
+            color: Theme.highlightColor
+            onLinkActivated: Qt.openUrlExternally(infopage.homepage)
 			}
 
         Label {
@@ -39,11 +40,13 @@ Page {
 		Text {
             width: parent.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-            text: license
-            color: Theme.primaryColor
+            // XKCD has a proper license page, other comics don't. This is a dirty hack.
+            text: (infopage.title == "XKCD") ? "<a href=\"license\">" + infopage.license + "</a>" : "<a href=\"license\">" + license + "</a>" + ".\n\nNote that the official comic license statement is displayed on the comic home page above. This direct link is the one provided in the Creative Commons image on the home page."
+            color: Theme.highlightColor
+            onLinkActivated: Qt.openUrlExternally(infopage.license)
 			}
 
         }
 
-    }
+        }
 

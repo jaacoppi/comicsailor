@@ -7,7 +7,7 @@
 #include "common.h"
 
 char xkcd_baseurl[] = "http://www.xkcd.com/";
-char xkcd_license[] = "http://creativecommons.org/licenses/by-nc/2.5/";
+char xkcd_license[] = "https://xkcd.com/license.html";
 
 // curl and json helper functions
 extern int getcurldata(char *url, struct curl_inputstruct *chunk);

@@ -6,7 +6,7 @@
 #include "common.h"
 
 char diesel_baseurl[] = "http://www.dieselsweeties.com/";
-char diesel_license[] = "Creative Commons Attribution-NonCommercial 2.5";
+char diesel_license[] = "https://creativecommons.org/licenses/by-nc/2.5/";
 char diesel_archiveurl[100] = "http://www.dieselsweeties.com/archive/";
 // curl  helper functions
 extern int getcurldata(char *url, struct curl_inputstruct *chunk);
