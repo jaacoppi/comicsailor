@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 // Comic Sailor about page
 Page {
         id: aboutpage
-        allowedOrientations: Orientation.All
+        allowedOrientations: Orientation.Portrait | Orientation.Landscape | Orientation.LandscapeInverted
         Column {
                 id: column
                 height: parent.height

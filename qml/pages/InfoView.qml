@@ -5,7 +5,7 @@ import harbour.comicsailor 1.0
 // Comic Sailor Comic Info page
 Page {
     id: infopage
-    allowedOrientations: Orientation.All
+    allowedOrientations: Orientation.Portrait | Orientation.Landscape | Orientation.LandscapeInverted
     property string license
     property string homepage
     property string title

@@ -8,7 +8,7 @@ Page {
 // we get these from FirstPage - what comic to load
     property string comic 
     property string comictitle
-    allowedOrientations: Orientation.All
+    allowedOrientations: Orientation.Portrait | Orientation.Landscape | Orientation.LandscapeInverted
     Selectedcomic {
         id: comicsailor
         Component.onCompleted: {
