@@ -6,16 +6,13 @@ import harbour.comicsailor 1.0
 Page {
     id: comicviewpage
 // we get these from FirstPage - what comic to load
-    property string comic 
+    property string comic
     property string comictitle
     allowedOrientations: Orientation.Portrait | Orientation.Landscape | Orientation.LandscapeInverted
     Selectedcomic {
         id: comicsailor
         Component.onCompleted: {
-        if (comic == "XKCD") { changecomic_xkcd() }
-        if (comic == "DIESEL") { changecomic_diesel() }
-        if (comic == "PEEBLES") { changecomic_peebles() }
-        if (comic == "SPIKED") { changecomic_spiked() }
+        changecomic(comic)
         }
     onImgurlChanged: comic_img.source = imgurl
     }

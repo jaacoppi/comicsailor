@@ -25,12 +25,7 @@ class Selectedcomic : public QObject {
 
 
 	// stuff interfacing with the QML UI
-    Q_INVOKABLE int changecomic(comics comic);
-    // dirty hacks due to lack of QML know-how
-    Q_INVOKABLE int changecomic_peebles();
-    Q_INVOKABLE int changecomic_diesel();
-    Q_INVOKABLE int changecomic_xkcd();
-    Q_INVOKABLE int changecomic_spiked();
+    Q_INVOKABLE int changecomic(QString comic);
 	// UI for browsing
     Q_INVOKABLE int comic_next();
     Q_INVOKABLE int comic_prev();

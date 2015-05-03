@@ -38,72 +38,44 @@ char *fillstring(char *ptr, char *beg, int nr, char *end);
 // this changes function pointers so the currently shown comic can use them
 // note that different comics can keep their own pointer data intact so we
 // avoid the cost of init every time a user switches between them
-int Selectedcomic::changecomic(comics comic) {
-
-    switch(comic) {
-        case	XKCD: {
+int Selectedcomic::changecomic(QString comic) {
+    if (comic == "XKCD") {
             getcurrent = &Selectedcomic::xkcd_getcurrent;
             homepage = xkcd_baseurl;
             license = xkcd_license;
-			break;
-			}
-		case	PEEBLES: {
+            }
+    if (comic == "PEEBLES") {
             getcurrent = &Selectedcomic::peebleslab_getcurrent;
             homepage = peebles_baseurl;
             license = peebles_license;
-			break;
-			}
-		case	DIESEL: {
+            }
+    if (comic == "DIESEL") {
             getcurrent = &Selectedcomic::diesel_getcurrent;
             homepage = diesel_baseurl;
             license = diesel_license;
-			break;
 			}
-		case	SPIKED: {
+    if (comic == "SPIKED") {
             getcurrent = &Selectedcomic::spiked_getcurrent;
             homepage = spiked_baseurl;
             license = spiked_license;
-			break;
 			}
-		}
 
 
-        newest = 0;
-        current = 0;
-        current_url = NULL;
-        current_img = NULL;
+    this->newest = 0;
+    this->current = 0;
+    this->current_url = NULL;
+    this->current_img = NULL;
 
-        // load newest
-        int ret = (this->*getcurrent)();
-        if (ret == -1) {
-            printf("Fatal error getting current curl!\n");
-            exit(EXIT_FAILURE);
-            }
+    // load newest
+    int ret = (this->*getcurrent)();
+    if (ret == -1) {
+        printf("Fatal error getting current curl!\n");
+        exit(EXIT_FAILURE);
+        }
     emit currentChanged();
     emit imgurlChanged();
     return 1;
 	}
-
-// dirty hacks due to lack of QML know-how
-int Selectedcomic::changecomic_xkcd() {
-    changecomic(XKCD);
-    return 1;
-    }
-
-int Selectedcomic::changecomic_spiked() {
-    changecomic(SPIKED);
-    return 1;
-    }
-
-int Selectedcomic::changecomic_peebles() {
-    changecomic(PEEBLES);
-    return 1;
-    }
-
-int Selectedcomic::changecomic_diesel() {
-    changecomic(DIESEL);
-    return 1;
-    }
 
 
 int Selectedcomic::comic_random() {
