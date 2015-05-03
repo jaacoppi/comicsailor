@@ -25,5 +25,5 @@ int Selectedcomic::peebleslab_getcurrent() {
     current_url = fillstring(current_url, peebles_baseurl, (long int) NULL, (char *) NULL);
     current_img = fillstring(current_img, peebles_archiveurl, (long int) current, (char *) ".png");
 
-    return 1;
+    return EXIT_SUCCESS;
     }

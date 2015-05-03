@@ -30,7 +30,8 @@ int Selectedcomic::diesel_getcurrent() {
 	if (newest == 0) {
 	        // diesel api gives the newest here:
 		// get the front page
-	        getcurldata(diesel_baseurl, &chunk);
+            if (getcurldata(diesel_baseurl, &chunk) == EXIT_FAILURE)
+                    return EXIT_FAILURE;
 		// in dieselsweeties, the source looks like this:
 		// <a href="/archive/3748"><img src="/hstrips/0/3/7/4/03749.png"
 		// get the number of newest
@@ -58,7 +59,8 @@ int Selectedcomic::diesel_getcurrent() {
 		// get current url
 		current_url = fillstring(current_url, diesel_archiveurl, current, NULL);
 		// get current page
-	        getcurldata(current_url, &chunk);
+            if (getcurldata(current_url, &chunk) == EXIT_FAILURE)
+                return EXIT_FAILURE;
 		// we need to reload the correct page
 		}
 
@@ -81,5 +83,5 @@ int Selectedcomic::diesel_getcurrent() {
 	current_img = (char *) realloc(current_img, strlen(current_img) + strlen(tempstr) +1);
 	strncat(current_img, tempstr, strlen(tempstr));
 	free (chunk.memory);
-    return 1;
+    return EXIT_SUCCESS;
 }

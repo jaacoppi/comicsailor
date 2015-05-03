@@ -30,7 +30,8 @@ int Selectedcomic::spiked_getcurrent() {
 	// if 0, this is the first time this function runs and we need to init current
     if (newest == 0) {
 		// get the front page
-	        getcurldata(spiked_baseurl, &chunk);
+            if (getcurldata(spiked_baseurl, &chunk) == EXIT_FAILURE)
+                    return EXIT_FAILURE;
 		// in spikedmath, the source looks like this:
 		// asset-name entry-title">576</h1>
 		// get the number of newest
@@ -65,7 +66,8 @@ int Selectedcomic::spiked_getcurrent() {
             current_url = fillstring(current_url, spiked_baseurl, current, (char *)".html");
 
 		// get current page
-        getcurldata(current_url, &chunk);
+        if (getcurldata(current_url, &chunk) == EXIT_FAILURE)
+            return EXIT_FAILURE;
         }
 
     // get current img based on current_url
@@ -89,5 +91,5 @@ int Selectedcomic::spiked_getcurrent() {
     current_img = (char *) realloc(current_img, strlen(current_img) + strlen(tempstr) + 1);
     strcat(current_img, tempstr);
 	free (chunk.memory);
-    return 1;
+    return EXIT_SUCCESS;
     }

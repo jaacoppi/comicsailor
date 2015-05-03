@@ -6,10 +6,7 @@
 #include <QObject>
 #include <ctime>
 
-
-
 char comic_names[NRCOMICS][40] = { "XKCD", "Peebles Lab", "Diesel Sweeties", "Spiked Math"};
-
 class Selectedcomic comic_data[NRCOMICS];
 
 // constructor - connect with QML
@@ -28,10 +25,6 @@ extern char diesel_baseurl[];
 extern char diesel_license[];
 extern char spiked_baseurl[];
 extern char spiked_license[];
-
-
-// curl helper functions
-extern int getcurldata(char *url, struct curl_inputstruct *chunk);
 
 char *fillstring(char *ptr, char *beg, int nr, char *end);
 
@@ -67,14 +60,16 @@ int Selectedcomic::changecomic(QString comic) {
     this->current_img = NULL;
 
     // load newest
-    int ret = (this->*getcurrent)();
-    if (ret == -1) {
-        printf("Fatal error getting current curl!\n");
-        exit(EXIT_FAILURE);
+   if ((this->*getcurrent)() == EXIT_FAILURE) {
+        this->current = 0;
+        this->current_img = NULL;
         }
-    emit currentChanged();
-    emit imgurlChanged();
-    return 1;
+
+
+        emit currentChanged();
+        emit imgurlChanged();
+
+    return EXIT_SUCCESS;
 	}
 
 
